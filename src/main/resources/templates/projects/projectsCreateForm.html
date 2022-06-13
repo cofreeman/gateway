@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wooray</title>
+</head>
+<body>
+<span>프로젝트 목록</span>
+<div style="text-align: center; display: flex; justify-content: center">
+    <table style="text-align: center; border: 1px solid black">
+        <tr>
+            <th style="text-align: center; border: 1px solid black">번호</th>
+            <th style="text-align: center; border: 1px solid black">제목</th>
+            <th style="text-align: center; border: 1px solid black">관리자</th>
+            <th style="text-align: center; border: 1px solid black">상태</th>
+        </tr>
+        <tr th:each="project : ${projects}">
+            <td style="text-align: center; border: 1px solid black" th:text="${project.projectName}"></td>
+            <td style="text-align: center; border: 1px solid black">
+                <a th:href="'/project/detail/' + ${project.no} + '?page=0'" th:text="${project.title}"></a>
+            </td>
+            <td style="text-align: center; border: 1px solid black" th:text="${project.admin}"></td>
+            <td style="text-align: center; border: 1px solid black" th:text="${project.state}"></td>
+        </tr>
+    </table>
+</div>
+private Long projectId;
+
+private String projectName;
+
+private ProjectState projectState;
+
+private Long userId;
+
+private String id;
+<br />
+
+<div style="text-align: center">
+    <a th:href="'/project/register'">프로젝트 생성</a>
+    <h3><a href="/">메인</a></h3>
+</div>
+</body>
+</html>

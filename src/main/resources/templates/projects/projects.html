@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wooray</title>
+</head>
+<body>
+<span>프로젝트 목록</span>
+<div style="text-align: center; display: flex; justify-content: center">
+    <table style="text-align: center; border: 1px solid black">
+        <tr>
+            <th style="text-align: center; border: 1px solid black">제목</th>
+        </tr>
+        <tr th:each="project : ${projects}">
+            <td style="text-align: center; border: 1px solid black">
+                <a th:href="'/project/' + ${project.no} + '?page=0'" th:text="${project.title}"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br />
+
+<div style="text-align: center">
+    <a th:href="'/project/projectsCreateForm'">프로젝트 생성</a>
+    <h3><a href="/">메인</a></h3>
+</div>
+</body>
+</html>
